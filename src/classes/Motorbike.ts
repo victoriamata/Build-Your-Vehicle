@@ -34,8 +34,8 @@ class Motorbike extends Vehicle {
     this.year = year;
     this.weight = weight;
     this.topSpeed = topSpeed;
-    // Check if the wheels array has 4 elements
-    // If not, create 4 new Wheel objects
+    // Check if the wheels array has 2 elements
+    // If not, create 2 new Wheel objects
     // Otherwise, use the provided wheels array
     if (wheels.length !== 2) {
       this.wheels = [new Wheel(), new Wheel()];
@@ -44,13 +44,12 @@ class Motorbike extends Vehicle {
     }
   }
   // TODO: Create a constructor that accepts the properties of the Motorbike class
-    // TODO: The constructor should call the constructor of the parent class, Vehicle
-    // TODO: The constructor should initialize the properties of the Motorbike class
-    // TODO: The constructor should check if the wheels array has 2 elements and create 2 new default Wheel objects if it does not
-
+  
   // TODO: Implement the wheelie method
     // TODO: The method should log the message "Motorbike [make] [model] is doing a wheelie!"
-
+if (){
+  console.log(`Motorbike ${this.make} ${this.model} is doing a wheelie!`);
+}
 
   // TODO: Override the printDetails method from the Vehicle class
   // TODO: The method should call the printDetails method of the parent class

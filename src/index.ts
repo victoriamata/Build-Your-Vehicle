@@ -4,12 +4,13 @@ import Car from "./classes/Car.js";
 import Motorbike from "./classes/Motorbike.js";
 import Wheel from "./classes/Wheel.js";
 import Cli from "./classes/Cli.js";
+import Vehicle from "./classes/Vehicle.js";
 
 // create an array of vehicles
 const vehicles = ['Truck','Car','Motorbike'];
 
 // TODO: uncomment once trucks are implemented
-const truck1 = new Truck(Cli.generateVin(),"red", "Ford", "F-150", 2021, 5000, 120, [], 10000);
+const truck1 = new Truck(Cli.generateVin(),"red", "Ford", "F-150", 2021, 5000, 120, 1000, []);
 
 // will use default wheels
 const car1 = new Car(
@@ -30,7 +31,9 @@ const motorbike1 = new Motorbike(Cli.generateVin(), "black", "Harley Davidson", 
 // push vehicles to array
 // TODO: uncomment once trucks are implemented
 vehicles.push(truck1);
+
 vehicles.push(car1);
+
 // TODO: uncomment once motorbikes are implemented
 vehicles.push(motorbike1);
 

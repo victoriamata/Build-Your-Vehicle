@@ -178,6 +178,7 @@ class Cli {
           parseInt(answers.year),
           parseInt(answers.weight),
           parseInt(answers.topSpeed),
+          parseInt(answers.towingCapacity),
           []
         );
         // TODO: Use the answers object to pass the required properties to the Truck constructor
