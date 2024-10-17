@@ -16,6 +16,8 @@ If inquirer is already installed and listen in the package.json file, run "npm i
 ## Usage
 Type "npm run start" to use the application
 
+* Link to demo video: https://github.com/victoriamata/Build-Your-Vehicle
+
 ## License
 MIT License
 

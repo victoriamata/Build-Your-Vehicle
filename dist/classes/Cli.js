@@ -21,9 +21,9 @@ class Cli {
         inquirer
             .prompt([
             {
-                type: 'list',
-                name: 'selectedVehicleVin',
-                message: 'Select a vehicle to perform an action on',
+                type: "list",
+                name: "selectedVehicleVin",
+                message: "Select a vehicle to perform an action on",
                 choices: this.vehicles.map((vehicle) => {
                     return {
                         name: `${vehicle.vin} -- ${vehicle.make} ${vehicle.model}`,
@@ -44,19 +44,25 @@ class Cli {
         inquirer
             .prompt([
             {
-                type: 'list',
-                name: 'vehicleType',
-                message: 'Select a vehicle type',
+                type: "list",
+                name: "vehicleType",
+                message: "Select a vehicle type",
                 // TODO: Update the choices array to include Truck and Motorbike
-                choices: ['Car', 'Truck', 'Motorbike'],
+                choices: ["Car", "Truck", "Motorbike"],
             },
         ])
             .then((answers) => {
-            if (answers.vehicleType === 'Car') {
+            if (answers.vehicleType === "Car") {
                 // create a car
                 this.createCar();
+                // TODO: add statements to create a truck or motorbike if the user selects the respective vehicle type
             }
-            // TODO: add statements to create a truck or motorbike if the user selects the respective vehicle type
+            else if (answers.vehicleType === "Truck") {
+                this.createTruck();
+            }
+            else if (answers.vehicleType === "Motorbike") {
+                this.createMotorbike();
+            }
         });
     }
     // method to create a car
@@ -64,34 +70,34 @@ class Cli {
         inquirer
             .prompt([
             {
-                type: 'input',
-                name: 'color',
-                message: 'Enter Color',
+                type: "input",
+                name: "color",
+                message: "Enter Color",
             },
             {
-                type: 'input',
-                name: 'make',
-                message: 'Enter Make',
+                type: "input",
+                name: "make",
+                message: "Enter Make",
             },
             {
-                type: 'input',
-                name: 'model',
-                message: 'Enter Model',
+                type: "input",
+                name: "model",
+                message: "Enter Model",
             },
             {
-                type: 'input',
-                name: 'year',
-                message: 'Enter Year',
+                type: "input",
+                name: "year",
+                message: "Enter Year",
             },
             {
-                type: 'input',
-                name: 'weight',
-                message: 'Enter Weight',
+                type: "input",
+                name: "weight",
+                message: "Enter Weight",
             },
             {
-                type: 'input',
-                name: 'topSpeed',
-                message: 'Enter Top Speed',
+                type: "input",
+                name: "topSpeed",
+                message: "Enter Top Speed",
             },
         ])
             .then((answers) => {
@@ -111,43 +117,43 @@ class Cli {
         inquirer
             .prompt([
             {
-                type: 'input',
-                name: 'color',
-                message: 'Enter Color',
+                type: "input",
+                name: "color",
+                message: "Enter Color",
             },
             {
-                type: 'input',
-                name: 'make',
-                message: 'Enter Make',
+                type: "input",
+                name: "make",
+                message: "Enter Make",
             },
             {
-                type: 'input',
-                name: 'model',
-                message: 'Enter Model',
+                type: "input",
+                name: "model",
+                message: "Enter Model",
             },
             {
-                type: 'input',
-                name: 'year',
-                message: 'Enter Year',
+                type: "input",
+                name: "year",
+                message: "Enter Year",
             },
             {
-                type: 'input',
-                name: 'weight',
-                message: 'Enter Weight',
+                type: "input",
+                name: "weight",
+                message: "Enter Weight",
             },
             {
-                type: 'input',
-                name: 'topSpeed',
-                message: 'Enter Top Speed',
+                type: "input",
+                name: "topSpeed",
+                message: "Enter Top Speed",
             },
             {
-                type: 'input',
-                name: 'towingCapacity',
-                message: 'Enter Towing Capacity',
+                type: "input",
+                name: "towingCapacity",
+                message: "Enter Towing Capacity",
             },
         ])
             .then((answers) => {
-            const truck = new Truck(Cli.generateVin(), answers.color, answers.make, answers.model, parseInt(answers.year), parseInt(answers.weight), parseInt(answers.topSpeed), parseInt(answers.towingCapacity), []);
+            const truck = new Truck(Cli.generateVin(), answers.color, answers.make, answers.model, parseInt(answers.year), parseInt(answers.weight), parseInt(answers.topSpeed), [], parseInt(answers.towingCapacity));
             // TODO: Use the answers object to pass the required properties to the Truck constructor
             // TODO: push the truck to the vehicles array
             this.vehicles.push(truck);
@@ -162,54 +168,54 @@ class Cli {
         inquirer
             .prompt([
             {
-                type: 'input',
-                name: 'color',
-                message: 'Enter Color',
+                type: "input",
+                name: "color",
+                message: "Enter Color",
             },
             {
-                type: 'input',
-                name: 'make',
-                message: 'Enter Make',
+                type: "input",
+                name: "make",
+                message: "Enter Make",
             },
             {
-                type: 'input',
-                name: 'model',
-                message: 'Enter Model',
+                type: "input",
+                name: "model",
+                message: "Enter Model",
             },
             {
-                type: 'input',
-                name: 'year',
-                message: 'Enter Year',
+                type: "input",
+                name: "year",
+                message: "Enter Year",
             },
             {
-                type: 'input',
-                name: 'weight',
-                message: 'Enter Weight',
+                type: "input",
+                name: "weight",
+                message: "Enter Weight",
             },
             {
-                type: 'input',
-                name: 'topSpeed',
-                message: 'Enter Top Speed',
+                type: "input",
+                name: "topSpeed",
+                message: "Enter Top Speed",
             },
             {
-                type: 'input',
-                name: 'frontWheelDiameter',
-                message: 'Enter Front Wheel Diameter',
+                type: "input",
+                name: "frontWheelDiameter",
+                message: "Enter Front Wheel Diameter",
             },
             {
-                type: 'input',
-                name: 'frontWheelBrand',
-                message: 'Enter Front Wheel Brand',
+                type: "input",
+                name: "frontWheelBrand",
+                message: "Enter Front Wheel Brand",
             },
             {
-                type: 'input',
-                name: 'rearWheelDiameter',
-                message: 'Enter Rear Wheel Diameter',
+                type: "input",
+                name: "rearWheelDiameter",
+                message: "Enter Rear Wheel Diameter",
             },
             {
-                type: 'input',
-                name: 'rearWheelBrand',
-                message: 'Enter Rear Wheel Brand',
+                type: "input",
+                name: "rearWheelBrand",
+                message: "Enter Rear Wheel Brand",
             },
         ])
             .then((answers) => {
@@ -225,13 +231,13 @@ class Cli {
     }
     // method to find a vehicle to tow
     // TODO: add a parameter to accept a truck object
-    findVehicleToTow() {
+    findVehicleToTow(truck) {
         inquirer
             .prompt([
             {
-                type: 'list',
-                name: 'vehicleToTow',
-                message: 'Select a vehicle to tow',
+                type: "list",
+                name: "vehicleToTow",
+                message: "Select a vehicle to tow",
                 choices: this.vehicles.map((vehicle) => {
                     return {
                         name: `${vehicle.vin} -- ${vehicle.make} ${vehicle.model}`,
@@ -242,8 +248,18 @@ class Cli {
         ])
             .then((answers) => {
             // TODO: check if the selected vehicle is the truck
-            // TODO: if it is, log that the truck cannot tow itself then perform actions on the truck to allow the user to select another action
-            // TODO: if it is not, tow the selected vehicle then perform actions on the truck to allow the user to select another action
+            const vehicleToTow = answers.vehicleToTow;
+            if (vehicleToTow) {
+                // TODO: if it is, log that the truck cannot tow itself then perform actions on the truck to allow the user to select another action
+                if (vehicleToTow instanceof Truck) {
+                    console.log(`A truck cannot tow another truck.`);
+                    // TODO: if it is not, tow the selected vehicle then perform actions on the truck to allow the user to select another action
+                }
+                else {
+                    truck.tow(vehicleToTow);
+                }
+                this.performActions();
+            }
         });
     }
     // method to perform actions on a vehicle
@@ -251,27 +267,28 @@ class Cli {
         inquirer
             .prompt([
             {
-                type: 'list',
-                name: 'action',
-                message: 'Select an action',
+                type: "list",
+                name: "action",
+                message: "Select an action",
                 // TODO: add options to tow and wheelie
                 choices: [
-                    'Print details',
-                    'Start vehicle',
-                    'Accelerate 5 MPH',
-                    'Decelerate 5 MPH',
-                    'Stop vehicle',
-                    'Turn right',
-                    'Turn left',
-                    'Reverse',
-                    'Select or create another vehicle',
-                    'Exit',
+                    "Print details",
+                    "Start vehicle",
+                    "Accelerate 5 MPH",
+                    "Decelerate 5 MPH",
+                    "Stop vehicle",
+                    "Turn right",
+                    "Turn left",
+                    "Tow",
+                    "Reverse",
+                    "Select or create another vehicle",
+                    "Exit",
                 ],
             },
         ])
             .then((answers) => {
             // perform the selected action
-            if (answers.action === 'Print details') {
+            if (answers.action === "Print details") {
                 // find the selected vehicle and print its details
                 for (let i = 0; i < this.vehicles.length; i++) {
                     if (this.vehicles[i].vin === this.selectedVehicleVin) {
@@ -279,7 +296,7 @@ class Cli {
                     }
                 }
             }
-            else if (answers.action === 'Start vehicle') {
+            else if (answers.action === "Start vehicle") {
                 // find the selected vehicle and start it
                 for (let i = 0; i < this.vehicles.length; i++) {
                     if (this.vehicles[i].vin === this.selectedVehicleVin) {
@@ -287,7 +304,7 @@ class Cli {
                     }
                 }
             }
-            else if (answers.action === 'Accelerate 5 MPH') {
+            else if (answers.action === "Accelerate 5 MPH") {
                 // find the selected vehicle and accelerate it by 5 MPH
                 for (let i = 0; i < this.vehicles.length; i++) {
                     if (this.vehicles[i].vin === this.selectedVehicleVin) {
@@ -295,7 +312,7 @@ class Cli {
                     }
                 }
             }
-            else if (answers.action === 'Decelerate 5 MPH') {
+            else if (answers.action === "Decelerate 5 MPH") {
                 // find the selected vehicle and decelerate it by 5 MPH
                 for (let i = 0; i < this.vehicles.length; i++) {
                     if (this.vehicles[i].vin === this.selectedVehicleVin) {
@@ -303,7 +320,7 @@ class Cli {
                     }
                 }
             }
-            else if (answers.action === 'Stop vehicle') {
+            else if (answers.action === "Stop vehicle") {
                 // find the selected vehicle and stop it
                 for (let i = 0; i < this.vehicles.length; i++) {
                     if (this.vehicles[i].vin === this.selectedVehicleVin) {
@@ -311,23 +328,23 @@ class Cli {
                     }
                 }
             }
-            else if (answers.action === 'Turn right') {
+            else if (answers.action === "Turn right") {
                 // find the selected vehicle and turn it right
                 for (let i = 0; i < this.vehicles.length; i++) {
                     if (this.vehicles[i].vin === this.selectedVehicleVin) {
-                        this.vehicles[i].turn('right');
+                        this.vehicles[i].turn("right");
                     }
                 }
             }
-            else if (answers.action === 'Turn left') {
+            else if (answers.action === "Turn left") {
                 // find the selected vehicle and turn it left
                 for (let i = 0; i < this.vehicles.length; i++) {
                     if (this.vehicles[i].vin === this.selectedVehicleVin) {
-                        this.vehicles[i].turn('left');
+                        this.vehicles[i].turn("left");
                     }
                 }
             }
-            else if (answers.action === 'Reverse') {
+            else if (answers.action === "Reverse") {
                 // find the selected vehicle and reverse it
                 for (let i = 0; i < this.vehicles.length; i++) {
                     if (this.vehicles[i].vin === this.selectedVehicleVin) {
@@ -336,21 +353,35 @@ class Cli {
                 }
             }
             // TODO: add statements to perform the tow action only if the selected vehicle is a truck. Call the findVehicleToTow method to find a vehicle to tow and pass the selected truck as an argument. After calling the findVehicleToTow method, you will need to return to avoid instantly calling the performActions method again since findVehicleToTow is asynchronous.
-            else if (answers.action === 'Tow') {
+            else if (answers.action === "Tow") {
                 for (let i = 0; i < this.vehicles.length; i++) {
                     if (this.vehicles[i].vin === this.selectedVehicleVin) {
                         if (this.vehicles[i] instanceof Truck) {
-                            this.findVehicleToTow();
+                            this.findVehicleToTow(this.vehicles[i]);
+                            return;
+                        }
+                        else {
+                            console.log(`This vehicle cannot tow.`);
                         }
                     }
                 }
-                return;
             }
             // TODO: add statements to perform the wheelie action only if the selected vehicle is a motorbike
-            else if (answers.action === 'Select or create another vehicle') {
-                if (this.vehicles instanceof Motorbike)
-                    // start the cli to return to the initial prompt if the user wants to select or create another vehicle
-                    this.startCli();
+            else if (answers.action === "Perform a wheelie") {
+                for (let i = 0; i < this.vehicles.length; i++) {
+                    if (this.vehicles[i].vin === this.selectedVehicleVin) {
+                        if (this.vehicles[i] instanceof Motorbike) {
+                            this.vehicles[i].wheelie();
+                        }
+                        else {
+                            console.log(`This vehicle cannot wheelie.`);
+                        }
+                    }
+                }
+            }
+            else if (answers.action === "Select or create another vehicle") {
+                // start the cli to return to the initial prompt if the user wants to select or create another vehicle
+                this.startCli();
                 return;
             }
             else {
@@ -368,15 +399,15 @@ class Cli {
         inquirer
             .prompt([
             {
-                type: 'list',
-                name: 'CreateOrSelect',
-                message: 'Would you like to create a new vehicle or perform an action on an existing vehicle?',
-                choices: ['Create a new vehicle', 'Select an existing vehicle'],
+                type: "list",
+                name: "CreateOrSelect",
+                message: "Would you like to create a new vehicle or perform an action on an existing vehicle?",
+                choices: ["Create a new vehicle", "Select an existing vehicle"],
             },
         ])
             .then((answers) => {
             // check if the user wants to create a new vehicle or select an existing vehicle
-            if (answers.CreateOrSelect === 'Create a new vehicle') {
+            if (answers.CreateOrSelect === "Create a new vehicle") {
                 this.createVehicle();
             }
             else {
