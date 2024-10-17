@@ -24,7 +24,7 @@ class Motorbike extends Vehicle {
     weight: number,
     topSpeed: number,
     wheels: Wheel[]
-  ) {
+  ){
     super();
 
     this.vin = vin;
@@ -47,7 +47,7 @@ class Motorbike extends Vehicle {
   
   // TODO: Implement the wheelie method
     // TODO: The method should log the message "Motorbike [make] [model] is doing a wheelie!"
-if () {
+wheelie():void {
   console.log(`Motorbike ${this.make} ${this.model} is doing a wheelie!`);
 }
 
